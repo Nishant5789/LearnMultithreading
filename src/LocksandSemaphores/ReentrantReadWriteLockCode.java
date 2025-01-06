@@ -2,10 +2,12 @@ package LocksandSemaphores;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-//The provided image showcases the use of the ReadWriteLock in Java, which is a synchronization mechanism used for optimizing thread-safe operations. Below is the code based on the image and its concepts:
+//The provided image showcases the use of the ReadWriteLock in Java, which is a synchronization mechanism used
+// for optimizing thread-safe operations. Below is the code based on the image and its concepts:
 //Concept: ReadWriteLock
 //Read Lock: Allows multiple threads to acquire the lock concurrently for reading, as long as no thread holds the write lock.
-//Write Lock: Allows only one thread to acquire the lock for writing, and no other thread (reader or writer) can acquire the lock simultaneously.
+//Write Lock: Allows only one thread to acquire the lock for writing, and no other thread (reader or writer) can acquire
+// the lock simultaneously.
 //This makes it ideal for scenarios where:
 
 //Multiple threads read shared data frequently.

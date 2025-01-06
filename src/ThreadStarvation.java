@@ -25,23 +25,21 @@ public class ThreadStarvation {
         th2.start();
 
         System.out.println("thread1 is suspended");
-        th1.suspend();
-        th1.resume();
+//        th1.suspend();
+//        th1.resume();
 
         th1.join();
         th2.join();
 //        th1.setDaemon(true);
 //        used in logging, autosave, garbage collector
-        System.out.println("Main thread is finishing its work");
+//        System.out.println("Main thread is finishing its work");
     }
 }
 
 class Resource {
-    boolean isAvailable = false;
 
     public synchronized void produce(int threadno) throws InterruptedException {
         System.out.println("Lock acquired"+threadno);
-        isAvailable=true;
         Thread.sleep(4000);
         System.out.println("lock release"+threadno);
     }

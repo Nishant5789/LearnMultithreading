@@ -6,7 +6,7 @@ public class ProducerConsumer {
         SharedResource SharedResourceObj = new SharedResource();
         Thread producerthread = new Thread(()->{
             try {
-                Thread.sleep(2000);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

@@ -3,7 +3,7 @@ package ProducerandConsumer;
 public class SharedResource {
     boolean isItemPresent = false;
 
-//    put the monitor lock on this instace of class
+    //    put the monitor lock on this instace of class
     public synchronized void addItem(){
         isItemPresent=true;
         System.out.println("item added by " + Thread.currentThread().getName()+ "and invoking all threads which are blocked ");
@@ -11,7 +11,7 @@ public class SharedResource {
     }
 
     public synchronized void consumeItem(){
-        System.out.println("consumeitem method invoked by :"+ Thread.currentThread().getName());
+        System.out.println("consume item method invoked by :"+ Thread.currentThread().getName());
         // avoid suporious wakeup
         while (!isItemPresent){
             try {

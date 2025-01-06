@@ -29,7 +29,7 @@ public class optimisticreadlock {
         try {
             Thread.sleep(5000);
             if(lock.validate(stamp)){
-                System.out.println("updated sucessfully");
+                System.out.println("updated successfully");
             }
             else{
                 System.out.println("roll back of work");
@@ -42,7 +42,7 @@ public class optimisticreadlock {
 
     public void consumer() {
         long stamp = lock.writeLock();
-        System.out.println("write lock accquired by : " + Thread.currentThread().getName());
+        System.out.println("write lock acquired by : " + Thread.currentThread().getName());
         try {
             System.out.println("performing work");
             a=9;

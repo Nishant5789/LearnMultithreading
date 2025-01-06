@@ -12,7 +12,7 @@ public class ReentrantLockCode {
         });
 
         Thread t2 = new Thread(() -> {
-            resource1.producer();
+            resource2.producer();
         });
 
         t1.start();

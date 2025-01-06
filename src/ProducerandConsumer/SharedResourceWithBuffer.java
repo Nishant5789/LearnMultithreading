@@ -11,6 +11,7 @@ public class SharedResourceWithBuffer {
         this.buffersize = buffersize;
         sharedBuffer = new LinkedList<>();
     }
+
     public synchronized void produce(int item) throws InterruptedException {
         while(sharedBuffer.size() == buffersize){
             System.out.println("Buffer is full, Producre is waiting or consumer");
