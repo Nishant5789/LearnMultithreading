@@ -5,7 +5,7 @@ public class ThreadPoolExecutorCode {
     public static void main(String[] args) {
 //        Future
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
-                2,                           // corePoolSize
+                2,              // corePoolSize
                 4,                           // maximumPoolSize
                 1,                           // keepAliveTime
                 TimeUnit.MINUTES,            // timeUnit for keepAliveTime

@@ -4,15 +4,16 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockCode {
     public static void main(String[] args) {
+         ReentrantLock lock = new ReentrantLock();
         SharedResource1 resource1 = new SharedResource1();
         SharedResource1 resource2 = new SharedResource1();
 
         Thread t1 = new Thread(() -> {
-            resource1.producer();
+            resource1.producer(lock);
         });
 
         Thread t2 = new Thread(() -> {
-            resource2.producer();
+            resource2.producer(lock);
         });
 
         t1.start();
@@ -21,14 +22,11 @@ public class ReentrantLockCode {
 }
 
 class SharedResource1 {
-    private boolean isAvailable = false;
-    private ReentrantLock lock = new ReentrantLock();
 
-    public  void producer() {
+    public  void producer(ReentrantLock lock) {
+        lock.lock();
         try {
-            lock.lock();
             System.out.println("Lock acquired by: " + Thread.currentThread().getName());
-            isAvailable = true;
             Thread.sleep(4000); // Simulating some work
         } catch (Exception e) {
             e.printStackTrace();

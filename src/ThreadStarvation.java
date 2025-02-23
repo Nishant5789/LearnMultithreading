@@ -1,6 +1,5 @@
 public class ThreadStarvation {
     public static void main(String[] args) throws InterruptedException {
-
         Resource resource = new Resource();
         System.out.println("main thread started");
 
@@ -37,7 +36,6 @@ public class ThreadStarvation {
 }
 
 class Resource {
-
     public synchronized void produce(int threadno) throws InterruptedException {
         System.out.println("Lock acquired"+threadno);
         Thread.sleep(4000);

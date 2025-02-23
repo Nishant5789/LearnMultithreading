@@ -16,7 +16,7 @@ public class SharedResource {
         while (!isItemPresent){
             try {
                 System.out.println("Thread "+ Thread.currentThread().getName()+" is waiting now");
-                wait(); // it release the monitor locks
+                wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

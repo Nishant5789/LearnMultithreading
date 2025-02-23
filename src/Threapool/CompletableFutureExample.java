@@ -14,6 +14,7 @@ public class CompletableFutureExample {
                     Executors.defaultThreadFactory(),
                     new ThreadPoolExecutor.AbortPolicy()
             );
+
 //            CompletableFuture<String> asyncTask = CompletableFuture.supplyAsync(() -> {
 //                // "this is the task which needs to be completed by thread"
 //                return "task completed";
@@ -22,26 +23,26 @@ public class CompletableFutureExample {
 
             CompletableFuture<String> asyncTask1 = CompletableFuture.supplyAsync(() -> {
                 // "this is the task which needs to be completed by thread"
-                System.out.println("thread name which runs supplyasync"+ Thread.currentThread().getName());
+                System.out.println("thread name which runs supplyasync "+ Thread.currentThread().getName());
                 return "Nishant ";
             }, poolExecutor).thenApply((String val)->{
                 // funtionality which can work on the result of previous async  task
-                System.out.println("thread name which runs apply"+ Thread.currentThread().getName());
+                System.out.println("thread name which runs apply "+ Thread.currentThread().getName());
                 return val + "bhandari";
             });
             System.out.println(asyncTask1.get());
 
             CompletableFuture<String> asyncTask2 = CompletableFuture.supplyAsync(() -> {
                 // "this is the task which needs to be completed by thread"
-                System.out.println("thread name which runs supplyasync"+ Thread.currentThread().getName());
+                System.out.println("thread name which runs supplyasync "+ Thread.currentThread().getName());
                 return "Nishant ";
             }, poolExecutor).thenApplyAsync((String val)->{
                 // funtionality which can work on the result of previous async  task
-                System.out.println("thread name which runs applyasync"+ Thread.currentThread().getName());
+                System.out.println("thread name which runs apply async "+ Thread.currentThread().getName());
                 return val + "Milanbhai ";
             }).thenApplyAsync((String val)->{
                 // funtionality which can work on the result of previous async  task
-                System.out.println("thread name which runs apply async"+ Thread.currentThread().getName());
+                System.out.println("thread name which runs apply async "+ Thread.currentThread().getName());
                 return val + "bhandari";
             });
             System.out.println(asyncTask2.get());
